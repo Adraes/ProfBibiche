@@ -9,6 +9,8 @@
 # - architecture principale des touches B/C
 # Arx/Guiop12 :
 # - Afficher Titre du jeu
+# Adraes/Pakodar:
+# - Afficher fond
 #
 #
 #######################################################################
@@ -25,8 +27,21 @@ class Scene_Menu
   #---------------------------------
   def start
     super # Héritage du start de Scene_Base
+    create_background # affiche une image de fond
     create_title  # Commande "Afficher le titre du jeu"
   end  
+  
+  #---------------------------------
+  # * Affiche l'image de fond
+  #---------------------------------
+  def create_background
+    @background = Sprite.new
+    @background = Cache.picture("fond_ecran_titre")
+    @background.opacity = 255
+    @background.x = 0
+    @background.y = 0
+    @background.z = -1
+  end
   
   #---------------------------------
   # * Create Title
